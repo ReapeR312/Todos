@@ -1,0 +1,55 @@
+.todo-item {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	border: solid 0.1px rgb(185, 185, 185);
+	&__text {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		border: none;
+	}
+}
+.delete {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	border: none;
+}
+.example-margin {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	border: none;
+}
+
+.todos {
+	position: relative;
+	background-color: #ebe2e2;
+	width: 400px;
+}
+.menu {
+	display: flex;
+	margin: 0 0 100px 0;
+}
+.nav {
+	display: flex;
+	margin: 0 0 0 10px;
+	li {
+		margin: 0 5px;
+		a {
+			color: black;
+			text-decoration: none;
+		}
+	}
+}
+.editing-todo-item {
+	width: 100%;
+}
+#main-check {
+	position: absolute;
+	z-index: 1;
+	top: 137px;
+}

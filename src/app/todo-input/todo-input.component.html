@@ -1,0 +1,8 @@
+<input
+  #todoInput
+  autofocus
+  placeholder="What needs to be done?"
+  type="text"
+  id="todo"
+  (keyup.enter)="add(todoInput.value); todoInput.value = ''"
+/>

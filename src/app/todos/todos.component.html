@@ -1,0 +1,62 @@
+<div *ngIf="lengthTodo()">
+  <mat-checkbox
+    id="main-check"
+    (change)="completedTodosAll($event)"
+    [(ngModel)]="allTodosCompleted"
+  ></mat-checkbox>
+
+  <ul class="todos">
+    <ng-container *ngFor="let todo of todos$ | async">
+      <li class="todo-item" (dblclick)="startEditing(todo)">
+        <mat-checkbox
+          class="example-margin"
+          [(ngModel)]="todo.completed"
+          (change)="onCheckboxChange(todo)"
+        ></mat-checkbox>
+
+        <div class="todo-item__text" *ngIf="editingTodoId !== todo.id">
+          {{ todo.text }}
+        </div>
+
+        <input
+          *ngIf="editingTodoId === todo.id"
+          autofocus
+          [(ngModel)]="newTodoText"
+          (blur)="stopEditing(todo)"
+          (keydown.enter)="stopEditing(todo)"
+          class="editing-todo-item"
+        />
+
+        <button
+          type="button"
+          class="delete"
+          title="Delete"
+          (click)="delete(todo)"
+        >
+          x
+        </button>
+      </li>
+    </ng-container>
+  </ul>
+  <div class="menu">
+    <div class="value">{{ todoLeft() }} items left</div>
+
+    <ul class="nav">
+      <li><a routerLink="/todos" id="all">All</a></li>
+      <li><a routerLink="/active" id="active">Active</a></li>
+      <li><a routerLink="/completed" id="completed">Completed</a></li>
+    </ul>
+
+    <button (click)="deleteCompleted()">Delete Completed</button>
+  </div>
+  <br />
+  <br />
+  <br />
+  Double-click to edit a todo
+  <br />
+
+  Not created by the TodoMVC Team
+  <br />
+
+  Is not part of TodoMVC
+</div>
